@@ -1,0 +1,1 @@
+export{Cube3D} from './components/cube-3d'

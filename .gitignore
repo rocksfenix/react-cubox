@@ -1,0 +1,9 @@
+node_modules
+
+# Only is for publishing on NPM
+lib
+
+# Component Lib playground
+playground/node_modules
+package-lock.json
+playground/build
