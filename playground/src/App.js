@@ -1,11 +1,13 @@
 import React from 'react'
-import { Cube3D } from 'test-npm-package'
+import { Cube3D, Side } from 'test-npm-package'
 
 const App = () => {
   return (
     <div>
       <h1>Rocks</h1>
-      <Cube3D />
+      <Cube3D>
+        <Side />
+      </Cube3D>
     </div>
   )
 }

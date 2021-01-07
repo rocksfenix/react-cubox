@@ -3,7 +3,7 @@ import Side from '../components/side'
 
 // Helper function to check if we receive invalid
 // children component
-export default function getErrorInvalidChild (children) {
+export default function getErrorInvalidChild (children: React.ReactElement<any>) {
   let hasError = null
 
   if (!children) {
