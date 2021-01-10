@@ -1,7 +1,8 @@
+import React from 'react'
 // Helpers to get inline styles
 
 // Styles for the main viewport container
-export const getViewportStyles = (size: number, other: {} | null) => ({
+export const getViewportStyles = (size: number, other: ({} | null)): React.CSSProperties => ({
   background: '#000',
   marginTop: '20%',
   perspective: '800px',
@@ -17,7 +18,7 @@ interface CubeStyles {
 }
 
 // Styles for the cube container
-export const getCubeStyles = (cubeData: CubeStyles) => ({
+export const getCubeStyles = (cubeData: CubeStyles): React.CSSProperties => ({
   position: 'relative',
   margin: '0 auto',
   transformStyle: 'preserve-3d',
@@ -28,12 +29,12 @@ export const getCubeStyles = (cubeData: CubeStyles) => ({
 })
 
 // Styles for sides
-export const getSideStyles = (size: number, index: number) => ({
+export const getSideStyles = (size: number, index: number): React.CSSProperties => ({
   overflow: 'hidden',
   position: 'absolute',
   opacity: 0.8,
   background: 'radial-gradient(blue, rgb(0, 0, 0))',
-  touchCallout: 'none',
+  // touchCallout: 'none',
   userSelect: 'none',
   height: size,
   width: size,
@@ -42,7 +43,7 @@ export const getSideStyles = (size: number, index: number) => ({
   transform: getTransformBySide(index, size / 2)
 })
 
-function getTransformBySide (index: number, half: number) {
+function getTransformBySide (index: number, half: number): string {
   switch (index) {
     case 1: return `rotateX(90deg) translateZ(${half}px)`
     case 2: return `translateZ(${half}px)`
@@ -50,6 +51,7 @@ function getTransformBySide (index: number, half: number) {
     case 4: return `rotateY(180deg) translateZ(${half}px)`
     case 5: return `rotateY(-90deg) translateZ(${half}px)`
     case 6: return `rotateX(-90deg) rotate(180deg) translateZ(${half}px)`
+    default: return ''
   }
 }
 
