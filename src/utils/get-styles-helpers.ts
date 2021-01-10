@@ -2,7 +2,7 @@ import React from 'react'
 // Helpers to get inline styles
 
 // Styles for the main viewport container
-export const getViewportStyles = (size: number, other: ({} | null)): React.CSSProperties => ({
+export const getViewportStyles = (size: number, other?: ({} | null)): React.CSSProperties => ({
   background: '#000',
   marginTop: '20%',
   perspective: '800px',
