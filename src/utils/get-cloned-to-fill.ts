@@ -9,11 +9,12 @@ type Children = (React.ReactChild | React.ReactFragment | React.ReactPortal)
  * a b       =>   a b a b a b
  * a b c     =>   a b c a b c
  * a b c d   =>   a b c d a b
- * @param {Children} children
- * @param {number} length=6
- * @returns {Children[]}
+ * @param {Children} React children
+ * @param {number=6} length
+ * @param {any} size=100
+ * @returns {any}
  */
-export default function getClonedToFill (children: Children, length: number = 6) {
+export default function getClonedToFill (children: Children, length: number = 6, size = 100) {
   let items: Children[] = React.Children.toArray(children)
   let i = 0
   let output = []
@@ -28,7 +29,8 @@ export default function getClonedToFill (children: Children, length: number = 6)
       React.cloneElement(currentItem, {
         ...currentItem.props,
         key: `rr3d-${i}`,
-        index: i
+        index: i,
+        size
       })
     )
 
