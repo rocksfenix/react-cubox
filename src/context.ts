@@ -1,6 +1,16 @@
 import React from 'react'
 
-const context = React.createContext({})
+export interface CubeContext {
+  size: number
+  rotateX: number
+  rotateY: number
+}
+
+const context = React.createContext<CubeContext>({
+  size: 200,
+  rotateX: 0,
+  rotateY: 0
+})
 
 context.displayName = 'ReactCube3D'
 
