@@ -9,8 +9,12 @@ interface Props {
   children: React.PropsWithChildren<any>
   onClick?: (event: event) => void
   size: number
+  speed: number
   rotateX: number
   rotateY: number
+  sensivity: number
+  sensivityFade: number
+  touchSensivity: number
 }
 
 const Cube3DContext: React.FC<Props> = (props) => {
