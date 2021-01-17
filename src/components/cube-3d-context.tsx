@@ -20,7 +20,29 @@ interface Props {
 const Cube3DContext: React.FC<Props> = (props) => {
   const [rotateX, setRotateX] = useState(props.rotateX)
   const [rotateY, setRotateY] = useState(props.rotateY)
-  const { size } = props
+  const {
+    size,
+    sensivity,
+    sensivityFade,
+    touchSensivity,
+    speed,
+  } = props
+
+  let lastX = 0
+  let lastY = 0
+  let mouseX = 0
+  let mouseY = 0
+  let distanceX = 0
+  let distanceY = 0
+  let positionX = 0
+  let positionY = 0
+  let torqueX = 0
+  let torqueY = 0
+  let down = false
+  let upsideDown = false
+  let previousPositionX = 0
+  let previousPositionY = 0
+  const halfSize = size / 2
 
   const state = {
     rotateX,
