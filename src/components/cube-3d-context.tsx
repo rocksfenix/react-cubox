@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Provider } from '../context'
 
 type event = {
@@ -43,6 +43,31 @@ const Cube3DContext: React.FC<Props> = (props) => {
   let previousPositionX = 0
   let previousPositionY = 0
   const halfSize = size / 2
+
+  function mousedown () {
+    down = true
+  }
+
+  function mouseup () {
+    down = false
+  }
+
+  function mousemove (event: MouseEvent) {
+    mouseX = event.pageX
+    mouseY = event.pageY
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', mousedown)
+    document.addEventListener('mouseup', mouseup)
+    document.addEventListener('mousemove', mousemove)
+
+    return () => {
+      document.removeEventListener('mousedown', mousedown)
+      document.removeEventListener('mouseup', mouseup)
+      document.removeEventListener('mousemove', mousemove)
+    }
+  }, [])
 
   const state = {
     rotateX,
