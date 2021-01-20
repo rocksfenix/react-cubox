@@ -56,5 +56,8 @@
   "bugs": {
     "url": "https://github.com/rocksfenix/react-cube-3d/issues"
   },
-  "homepage": "https://react-cube-3d-website.vercel.app/"
+  "homepage": "https://react-cube-3d-website.vercel.app/",
+  "dependencies": {
+    "request-animation-frame-polyfill": "^1.1.2"
+  }
 }

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { requestAnimationFrame, cancelAnimationFrame } from 'request-animation-frame-polyfill'
 import { Provider } from '../context'
 
 type event = {
@@ -56,6 +57,20 @@ const Cube3DContext: React.FC<Props> = (props) => {
     mouseX = event.pageX
     mouseY = event.pageY
   }
+
+  function calculeMovement () {
+    requestRef.current = requestAnimationFrame(calculeMovement)
+    console.log('calculeMovement')
+  }
+
+  // Use useRef for mutable variables that we want to persist
+  // without triggering a re-render on their change
+  const requestRef: React.MutableRefObject<any> = useRef(null)
+  
+  useEffect(() => {
+    requestRef.current = requestAnimationFrame(calculeMovement)
+    return () => cancelAnimationFrame(requestRef.current)
+  }, [])
 
   useEffect(() => {
     document.addEventListener('mousedown', mousedown)
