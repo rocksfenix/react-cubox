@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { requestAnimationFrame, cancelAnimationFrame } from 'request-animation-frame-polyfill'
 import { Provider } from '../context'
+import getActiveSide from '../utils/get-active-side'
 
 type event = {
   side: number
@@ -109,6 +110,14 @@ const Cube3DContext: React.FC<Props> = (props) => {
       } else if (positionX < 0) {
         positionX += 360
       }
+
+      const currentSide = getActiveSide({
+        positionY,
+        positionX,
+        upsideDown
+      })
+
+      setCurrentSide(currentSide)
     }
 
     if(positionY !== previousPositionY || positionX !== previousPositionX) {
@@ -144,11 +153,12 @@ const Cube3DContext: React.FC<Props> = (props) => {
   }, [])
 
   const state = {
+    size,
     rotateX,
     rotateY,
     setRotateY,
     setRotateX,
-    size
+    currentSide
   }
 
   return (
