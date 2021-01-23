@@ -8,8 +8,6 @@ type event = {
 }
 
 interface Props {
-  children: React.PropsWithChildren<any>
-  onClick?: (event: event) => void
   size: number
   speed: number
   rotateX: number
@@ -17,6 +15,8 @@ interface Props {
   sensivity: number
   sensivityFade: number
   touchSensivity: number
+  onClick?: (event: event) => void
+  children: React.PropsWithChildren<any>
 }
 
 const Cube3DContext: React.FC<Props> = (props) => {
@@ -126,7 +126,7 @@ const Cube3DContext: React.FC<Props> = (props) => {
 
       // TODO: emit props.onMove() here!
       setRotateY(positionY)
-      setRotateY(positionX)
+      setRotateX(positionX)
     }
     requestRef.current = requestAnimationFrame(calculeMovement)
   }
@@ -156,8 +156,6 @@ const Cube3DContext: React.FC<Props> = (props) => {
     size,
     rotateX,
     rotateY,
-    setRotateY,
-    setRotateX,
     currentSide
   }
 
