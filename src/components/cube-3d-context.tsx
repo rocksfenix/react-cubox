@@ -21,6 +21,7 @@ interface Props {
 const Cube3DContext: React.FC<Props> = (props) => {
   const [rotateX, setRotateX] = useState(props.rotateX)
   const [rotateY, setRotateY] = useState(props.rotateY)
+  const [currentSide, setCurrentSide] = useState(0)
   const {
     size,
     sensivity,
@@ -59,8 +60,66 @@ const Cube3DContext: React.FC<Props> = (props) => {
   }
 
   function calculeMovement () {
+    distanceX = (mouseX - lastX)
+    distanceY = (mouseY - lastY)
+
+    lastX = mouseX
+    lastY = mouseY
+
+    if(down) {
+      torqueX = torqueX * sensivityFade + (distanceX * speed - torqueX) * sensivity
+      torqueY = torqueY * sensivityFade + (distanceY * speed - torqueY) * sensivity
+    }
+
+    // Aceleration movement based on the torque
+    if(Math.abs(torqueX) > 1.0 || Math.abs(torqueY) > 1.0) {
+      if(!down) {
+        torqueX *= sensivityFade
+        torqueY *= sensivityFade
+      }
+
+      positionY -= torqueY
+
+      if(positionY > 360) {
+        positionY -= 360
+      } else if(positionY < 0) {
+        positionY += 360
+      }
+
+      // Calcule direction of the control 
+      if(positionY > 90 && positionY < 270) {
+        positionX -= torqueX
+
+        // Check the orientation
+        if(!upsideDown) {
+          upsideDown = true
+        }
+
+      } else {
+        positionX += torqueX
+
+        // Check the orientation
+        if(upsideDown) {
+          upsideDown = false
+        }
+      }
+
+      if(positionX > 360) {
+        positionX -= 360
+      } else if (positionX < 0) {
+        positionX += 360
+      }
+    }
+
+    if(positionY !== previousPositionY || positionX !== previousPositionX) {
+      previousPositionY = positionY
+      previousPositionX = positionX
+
+      // TODO: emit props.onMove() here!
+      setRotateY(positionY)
+      setRotateY(positionX)
+    }
     requestRef.current = requestAnimationFrame(calculeMovement)
-    console.log('calculeMovement')
   }
 
   // Use useRef for mutable variables that we want to persist
