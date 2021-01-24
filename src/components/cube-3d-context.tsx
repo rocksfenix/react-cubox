@@ -60,6 +60,27 @@ const Cube3DContext: React.FC<Props> = (props) => {
     mouseY = event.pageY
   }
 
+  function touchstart (event: TouchEvent) {
+    down = true
+    mouseX = event.touches[0].pageX / touchSensivity
+    mouseY = event.touches[0].pageY / touchSensivity
+    lastX = mouseX
+    lastY = mouseY
+  }
+
+  function touchmove (event: TouchEvent) {
+    event.preventDefault()
+
+    if (event.touches.length === 1) {
+      mouseX = event.touches[0].pageX / touchSensivity
+      mouseY = event.touches[0].pageY / touchSensivity
+    }
+  }
+
+  function touchend () {
+    down = false
+  }
+
   function calculeMovement () {
     distanceX = (mouseX - lastX)
     distanceY = (mouseY - lastY)
@@ -144,11 +165,18 @@ const Cube3DContext: React.FC<Props> = (props) => {
     document.addEventListener('mousedown', mousedown)
     document.addEventListener('mouseup', mouseup)
     document.addEventListener('mousemove', mousemove)
+    document.addEventListener('touchstart', touchstart)
+    document.addEventListener('touchmove', touchmove)
+    document.addEventListener('touchend', touchend)
 
     return () => {
       document.removeEventListener('mousedown', mousedown)
       document.removeEventListener('mouseup', mouseup)
       document.removeEventListener('mousemove', mousemove)
+      document.removeEventListener('touchstart', touchstart)
+      document.removeEventListener('touchmove', touchmove)
+      document.removeEventListener('touchend', touchend)
+      
     }
   }, [])
 
