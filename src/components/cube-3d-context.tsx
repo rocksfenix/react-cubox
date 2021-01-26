@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { requestAnimationFrame, cancelAnimationFrame } from 'request-animation-frame-polyfill'
 import { Provider } from '../context'
 import getActiveSide from '../utils/get-active-side'
+import useDisableScroll from '../hooks/use-disable-scroll'
 
 type event = {
   side: number
@@ -23,6 +24,7 @@ const Cube3DContext: React.FC<Props> = (props) => {
   const [rotateX, setRotateX] = useState(props.rotateX)
   const [rotateY, setRotateY] = useState(props.rotateY)
   const [currentSide, setCurrentSide] = useState(0)
+  const [blockScroll, allowScroll] = useDisableScroll()
   const {
     size,
     sensivity,
@@ -61,6 +63,9 @@ const Cube3DContext: React.FC<Props> = (props) => {
   }
 
   function touchstart (event: TouchEvent) {
+    // TODO: Disable scroll, only if touches the
+    // cube for avoid move and scroll on the page
+    // blockScroll()
     down = true
     mouseX = event.touches[0].pageX / touchSensivity
     mouseY = event.touches[0].pageY / touchSensivity
@@ -184,7 +189,8 @@ const Cube3DContext: React.FC<Props> = (props) => {
     size,
     rotateX,
     rotateY,
-    currentSide
+    currentSide,
+    halfSize
   }
 
   return (
