@@ -62,15 +62,18 @@ const Cube3DContext: React.FC<Props> = (props) => {
     mouseY = event.pageY
   }
 
-  function touchstart (event: TouchEvent) {
-    // TODO: Disable scroll, only if touches the
-    // cube for avoid move and scroll on the page
-    // blockScroll()
-    down = true
-    mouseX = event.touches[0].pageX / touchSensivity
-    mouseY = event.touches[0].pageY / touchSensivity
-    lastX = mouseX
-    lastY = mouseY
+  function touchstart (event: any) {
+    if (!event?.target) return
+    if (event.target.getAttribute('sidereactcube3d')) {
+      // Disable scroll, only if touches the
+      // cube for avoid move and scroll on the page
+      blockScroll()
+      down = true
+      mouseX = event.touches[0].pageX / touchSensivity
+      mouseY = event.touches[0].pageY / touchSensivity
+      lastX = mouseX
+      lastY = mouseY
+    }
   }
 
   function touchmove (event: TouchEvent) {
@@ -181,7 +184,6 @@ const Cube3DContext: React.FC<Props> = (props) => {
       document.removeEventListener('touchstart', touchstart)
       document.removeEventListener('touchmove', touchmove)
       document.removeEventListener('touchend', touchend)
-      
     }
   }, [])
 
