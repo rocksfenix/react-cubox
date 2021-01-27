@@ -28,7 +28,8 @@ export const Side: React.FC<SideProps> = (props) => {
       style: {
         ...child.props.style,
         pointerEvents: 'none'
-      }
+      },
+      sidereactcube3d: 'ok'
     })
   })
 
