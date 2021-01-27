@@ -87,6 +87,7 @@ const Cube3DContext: React.FC<Props> = (props) => {
 
   function touchend () {
     down = false
+    allowScroll()
   }
 
   function calculeMovement () {
