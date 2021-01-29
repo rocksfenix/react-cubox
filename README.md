@@ -2,7 +2,7 @@
 
 > Cube 3D made with React
 
-[![NPM](https://img.shields.io/npm/v/react-repeat.svg)](https://www.npmjs.com/package/react-cube-3d) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-cube-3d.svg)](https://www.npmjs.com/package/react-cube-3d) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 -----
 

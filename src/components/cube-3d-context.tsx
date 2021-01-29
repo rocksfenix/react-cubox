@@ -4,10 +4,6 @@ import { Provider } from '../context'
 import getActiveSide from '../utils/get-active-side'
 import useDisableScroll from '../hooks/use-disable-scroll'
 
-type event = {
-  side: number
-}
-
 interface Props {
   size: number
   speed: number
@@ -16,7 +12,6 @@ interface Props {
   sensivity: number
   sensivityFade: number
   touchSensivity: number
-  onClick?: (event: event) => void
   children: React.PropsWithChildren<any>
 }
 
