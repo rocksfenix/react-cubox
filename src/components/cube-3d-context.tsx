@@ -1,5 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { requestAnimationFrame, cancelAnimationFrame } from 'request-animation-frame-polyfill'
+import {
+  requestAnimationFrame,
+  cancelAnimationFrame
+} from 'request-animation-frame-polyfill'
 import { Provider } from '../context'
 import getActiveSide from '../utils/get-active-side'
 import useDisableScroll from '../hooks/use-disable-scroll'
@@ -86,6 +89,7 @@ const Cube3DContext: React.FC<Props> = (props) => {
   }
 
   function calculeMovement () {
+
     distanceX = (mouseX - lastX)
     distanceY = (mouseY - lastY)
 
@@ -136,13 +140,13 @@ const Cube3DContext: React.FC<Props> = (props) => {
         positionX += 360
       }
 
-      const currentSide = getActiveSide({
+      const activeSide = getActiveSide({
         positionY,
         positionX,
         upsideDown
       })
 
-      setCurrentSide(currentSide)
+      setCurrentSide(activeSide)
     }
 
     if(positionY !== previousPositionY || positionX !== previousPositionX) {
@@ -150,8 +154,8 @@ const Cube3DContext: React.FC<Props> = (props) => {
       previousPositionX = positionX
 
       // TODO: emit props.onMove() here!
-      setRotateY(positionY)
-      setRotateX(positionX)
+      setRotateY(positionX)
+      setRotateX(positionY)
     }
     requestRef.current = requestAnimationFrame(calculeMovement)
   }

@@ -1,19 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import ErrorMessage from './error-message'
-import context, { CubeContext } from '../context'
+import { Consumer } from '../context'
 // Utilities
 import getErrorInvalidChild from '../utils/get-error-invalid-child'
 import getClonedToFill from '../utils/get-cloned-to-fill'
 import { getCubeStyles } from '../utils/get-styles-helpers'
+import { Viewport } from '../components/viewport'
+import { Cube3DProps } from '../types/interfaces'
 
-interface Props {
-  children: React.PropsWithChildren<any>
-  size: number
-}
-
-export const Cube3D: React.FC<Props> = (props) => {
-  const ctx = useContext<CubeContext>(context)
-
+export const Cube3D: React.FC<Cube3DProps> = (props) => {
   // First we check if children elements / components are invalid.
   const errorMessage = getErrorInvalidChild(props.children)
 
@@ -26,12 +21,28 @@ export const Cube3D: React.FC<Props> = (props) => {
   // If the side is less than 6 then we clone the
   // elements to fill 6 positions on the sides of the cube. 
   if (React.Children.count(props.children) < 6) {
-    children = getClonedToFill(props.children, 6, ctx.size)
+    children = getClonedToFill(props.children, 6, props.size)
   }
 
   return (
-    <div style={getCubeStyles(ctx)}>
-      {children}
-    </div>
+    <Viewport {...props}>
+      <Consumer>
+        {(ctx) => (
+          <div style={getCubeStyles(ctx)}>
+            {children}
+          </div>
+        )}
+      </Consumer>
+    </Viewport>
   )
+}
+
+Cube3D.defaultProps =  {
+  size: 350,
+  rotateX: 0,
+  rotateY: 0,
+  sensivity: 0.1,
+  sensivityFade: 0.87,
+  touchSensivity: 2,
+  speed: 0.8
 }
