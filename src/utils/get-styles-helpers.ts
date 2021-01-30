@@ -55,3 +55,17 @@ function getTransformBySide (index: number, half: number): string {
   }
 }
 
+
+export const getCubeImageStyles = (size: number) => ({
+  height: size,
+  width: size,
+  // Solo para centrar texto
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  ///
+  transform: 'rotate(180deg)',
+  fontSize: '80px',
+  color: '#FFF',
+  transition: 'color 600ms',
+})
