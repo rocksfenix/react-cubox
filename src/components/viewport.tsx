@@ -1,26 +1,9 @@
 import React from 'react'
 import Context from './cube-3d-context'
 import { getViewportStyles } from '../utils/get-styles-helpers'
+import { Cube3DProps } from '../types/interfaces'
 
-type event = {
-  side: number
-}
-
-interface viewportProps {
-  style: any
-  children: React.PropsWithChildren<any>
-  size: number
-  speed: number
-  height: number
-  rotateX: number
-  rotateY: number
-  sensivity: number
-  sensivityFade: number
-  touchSensivity: number
-  onClick?: (event: event) => void
-}
-
-export const Viewport: React.FC<viewportProps> = (props) => {
+export const Viewport: React.FC<Cube3DProps> = (props) => {
   const { size } = props
 
   return (
@@ -41,5 +24,11 @@ export const Viewport: React.FC<viewportProps> = (props) => {
 }
 
 Viewport.defaultProps = {
-  size: 200
+  size: 300,
+  rotateX: 0,
+  rotateY: 0,
+  sensivity: 0.1,
+  sensivityFade: 0.87,
+  touchSensivity: 2,
+  speed: 0.8,
 }
