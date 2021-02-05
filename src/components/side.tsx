@@ -1,5 +1,6 @@
-import React from 'react'
-import { getCubeStyles, getSideStyles } from '../utils/get-styles-helpers'
+import React, { useContext } from 'react'
+import { getCubeImageStyles, getSideStyles } from '../utils/get-styles-helpers'
+import context from '../context'
 
 type event = {
   side: number
@@ -8,12 +9,11 @@ type event = {
 interface SideProps {
   index: number
   onClick: (event: event) => void
-  size: number
-  rotateX: number
-  rotateY: number
 }
 
 export const Side: React.FC<SideProps> = (props) => {
+  const ctx = useContext(context)
+
   function handleClick () {
     if (props.onClick) {
       props.onClick({ side: props.index, ...props })
@@ -33,13 +33,8 @@ export const Side: React.FC<SideProps> = (props) => {
     })
   })
 
-  const cubeStyles = getCubeStyles({
-    size: props.size,
-    rotateX: props.rotateX,
-    rotateY: props.rotateY,
-  })
-
-  const sideStyles = getSideStyles(props.size, props.index)
+  const imageStyles = getCubeImageStyles(ctx.size)
+  const sideStyles = getSideStyles(ctx.size, props.index)
 
   const labelStyles = {
     fontSize: 50,
@@ -48,11 +43,11 @@ export const Side: React.FC<SideProps> = (props) => {
 
   return (
     <div
-      style={cubeStyles}
+      style={sideStyles}
       {...props}
       onClick={handleClick}
     >
-      <div style={sideStyles}>
+      <div style={imageStyles}>
         {!props.children && (
           // Will be removed
           <span style={labelStyles}>
