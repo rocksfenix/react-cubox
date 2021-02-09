@@ -29,7 +29,7 @@ export const getCubeStyles = (cubeData: CubeStyles): React.CSSProperties => ({
 })
 
 // Styles for sides
-export const getSideStyles = (size: number, index: number): React.CSSProperties => ({
+export const getFaceStyles = (size: number, index: number): React.CSSProperties => ({
   overflow: 'hidden',
   position: 'absolute',
   opacity: 0.8,

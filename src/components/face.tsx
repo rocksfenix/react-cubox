@@ -1,22 +1,22 @@
 import React, { useContext } from 'react'
-import { getCubeImageStyles, getSideStyles } from '../utils/get-styles-helpers'
+import { getCubeImageStyles, getFaceStyles } from '../utils/get-styles-helpers'
 import context from '../context'
 
 type event = {
-  side: number
+  face: number
 }
 
-interface SideProps {
+interface FaceProps {
   index: number
   onClick: (event: event) => void
 }
 
-export const Side: React.FC<SideProps> = (props) => {
+export const Face: React.FC<FaceProps> = (props) => {
   const ctx = useContext(context)
 
   function handleClick () {
     if (props.onClick) {
-      props.onClick({ side: props.index, ...props })
+      props.onClick({ face: props.index, ...props })
     }
   }
 
@@ -29,12 +29,12 @@ export const Side: React.FC<SideProps> = (props) => {
         ...child.props.style,
         pointerEvents: 'none'
       },
-      sidereactcube3d: 'ok'
+      reactcube3dface: `${props.index}`
     })
   })
 
   const imageStyles = getCubeImageStyles(ctx.size)
-  const sideStyles = getSideStyles(ctx.size, props.index)
+  const faceStyles = getFaceStyles(ctx.size, props.index)
 
   const labelStyles = {
     fontSize: 50,
@@ -43,7 +43,7 @@ export const Side: React.FC<SideProps> = (props) => {
 
   return (
     <div
-      style={sideStyles}
+      style={faceStyles}
       {...props}
       onClick={handleClick}
     >
@@ -60,4 +60,4 @@ export const Side: React.FC<SideProps> = (props) => {
   )
 }
 
-export default Side
+export default Face

@@ -62,7 +62,7 @@ const Cube3DContext: React.FC<Props> = (props) => {
 
   function touchstart (event: any) {
     if (!event?.target) return
-    if (event.target.getAttribute('sidereactcube3d')) {
+    if (event.target.getAttribute('reactcube3dface')) {
       // Disable scroll, only if touches the
       // cube for avoid move and scroll on the page
       blockScroll()
