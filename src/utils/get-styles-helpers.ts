@@ -1,14 +1,19 @@
 import React from 'react'
 // Helpers to get inline styles
 
+interface ViewportStyles {
+  size: number
+  otherStyles?: {}
+}
+
 // Styles for the main viewport container
-export const getViewportStyles = (size: number, other?: ({} | null)): React.CSSProperties => ({
+export const getViewportStyles = (props: ViewportStyles): React.CSSProperties => ({
   background: '#000',
   marginTop: '20%',
   perspective: '800px',
-  perspectiveOrigin: `50% ${size - size/6}px`,
+  perspectiveOrigin: `50% ${props.size - props.size/6}px`,
   transform: 'scale(0.8, 0.8)',
-  ...other,
+  ...props.otherStyles,
 })
 
 interface CubeStyles {
@@ -28,19 +33,25 @@ export const getCubeStyles = (cubeData: CubeStyles): React.CSSProperties => ({
   transform: `rotateX(${cubeData.rotateX}deg) rotateY(${cubeData.rotateY}deg)`
 })
 
+interface FaceProps {
+  size: number
+  index: number
+  bgColor: string
+}
+
 // Styles for sides
-export const getFaceStyles = (size: number, index: number): React.CSSProperties => ({
+export const getFaceStyles = (props: FaceProps): React.CSSProperties => ({
   overflow: 'hidden',
   position: 'absolute',
   opacity: 0.8,
-  background: 'radial-gradient(blue, rgb(0, 0, 0))',
+  background: `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`,
   // touchCallout: 'none',
   userSelect: 'none',
-  height: size,
-  width: size,
+  height: props.size,
+  width: props.size,
   willChange: 'opacity',
   transition: 'opacity 500ms ease',
-  transform: getTransformBySide(index, size / 2)
+  transform: getTransformBySide(props.index, props.size / 2)
 })
 
 function getTransformBySide (index: number, half: number): string {
@@ -54,7 +65,6 @@ function getTransformBySide (index: number, half: number): string {
     default: return ''
   }
 }
-
 
 export const getCubeImageStyles = (size: number) => ({
   height: size,
