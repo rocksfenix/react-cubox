@@ -7,11 +7,12 @@ export interface Cube3DProps {
   size: number
   speed: number
   height: number
+  bgColor: string
   rotateX: number
   rotateY: number
   sensivity: number
   sensivityFade: number
   touchSensivity: number
   onClick?: (event: event) => void
-  children: React.PropsWithChildren<any>
+  children?: React.PropsWithChildren<any>
 }
