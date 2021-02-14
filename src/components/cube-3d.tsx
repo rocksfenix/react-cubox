@@ -7,8 +7,10 @@ import getClonedToFill from '../utils/get-cloned-to-fill'
 import { getCubeStyles } from '../utils/get-styles-helpers'
 import { Viewport } from '../components/viewport'
 import { Cube3DProps } from '../types/interfaces'
+import Cube3DContext from './cube-3d-context'
 
 export const Cube3D: React.FC<Cube3DProps> = (props) => {
+  
   // First we check if children elements / components are invalid.
   const errorMessage = getErrorInvalidChild(props.children)
 
@@ -25,15 +27,17 @@ export const Cube3D: React.FC<Cube3DProps> = (props) => {
   }
 
   return (
-    <Viewport {...props}>
-      <Consumer>
-        {(ctx) => (
-          <div style={getCubeStyles(ctx)}>
-            {children}
-          </div>
-        )}
-      </Consumer>
-    </Viewport>
+    <Cube3DContext {...props}>
+      <Viewport {...props}>
+        <Consumer>
+          {(ctx) => (
+            <div style={getCubeStyles(ctx)}>
+              {children}
+            </div>
+          )}
+        </Consumer>
+      </Viewport>
+    </Cube3DContext>
   )
 }
 
@@ -44,5 +48,6 @@ Cube3D.defaultProps =  {
   sensivity: 0.1,
   sensivityFade: 0.87,
   touchSensivity: 2,
-  speed: 0.8
+  speed: 0.8,
+  bgColor: 'gold'
 }
