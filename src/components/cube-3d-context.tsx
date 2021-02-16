@@ -7,14 +7,9 @@ import { Provider } from '../context'
 import getActiveSide from '../utils/get-active-side'
 import useDisableScroll from '../hooks/use-disable-scroll'
 
-interface Props {
-  size: number
-  speed: number
-  rotateX: number
-  rotateY: number
-  sensivity: number
-  sensivityFade: number
-  touchSensivity: number
+import { Cube3DProps } from '../types/interfaces'
+
+interface Props extends Cube3DProps {
   children: React.PropsWithChildren<any>
 }
 
@@ -192,7 +187,8 @@ const Cube3DContext: React.FC<Props> = (props) => {
     rotateX,
     rotateY,
     currentSide,
-    halfSize
+    halfSize,
+    bgColor: props.bgColor
   }
 
   return (
