@@ -34,7 +34,11 @@ export const Face: React.FC<FaceProps> = (props) => {
   })
 
   const imageStyles = getCubeImageStyles(ctx.size)
-  const faceStyles = getFaceStyles(ctx.size, props.index)
+  const faceStyles = getFaceStyles({
+    size: ctx.size,
+    bgColor: ctx.bgColor,
+    index: props.index
+  })
 
   const labelStyles = {
     fontSize: 50,
