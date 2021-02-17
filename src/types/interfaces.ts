@@ -14,6 +14,7 @@ export interface Cube3DProps {
   sensivityFade: number
   touchSensivity: number
   material: string
+  opacity: number
   onClick?: (event: event) => void
   children?: React.PropsWithChildren<any>
 }

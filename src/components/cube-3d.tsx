@@ -52,5 +52,7 @@ Cube3D.defaultProps =  {
   bgColor: 'gold',
 
   // The material are (solid | gradient)
-  material: 'gradient'
+  material: 'gradient',
+
+  opacity: 0.8
 }
