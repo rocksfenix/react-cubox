@@ -49,5 +49,8 @@ Cube3D.defaultProps =  {
   sensivityFade: 0.87,
   touchSensivity: 2,
   speed: 0.8,
-  bgColor: 'gold'
+  bgColor: 'gold',
+
+  // The material are (solid | gradient)
+  material: 'gradient'
 }

@@ -188,7 +188,8 @@ const Cube3DContext: React.FC<Props> = (props) => {
     rotateY,
     currentSide,
     halfSize,
-    bgColor: props.bgColor
+    bgColor: props.bgColor,
+    material: props.material
   }
 
   return (

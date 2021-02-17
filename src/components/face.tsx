@@ -8,6 +8,8 @@ type event = {
 
 interface FaceProps {
   index: number
+  material?: string
+  bgColor?: string
   onClick: (event: event) => void
 }
 
@@ -34,10 +36,16 @@ export const Face: React.FC<FaceProps> = (props) => {
   })
 
   const imageStyles = getCubeImageStyles(ctx.size)
+
+  // The side prop has priority
+  const material = props.material || ctx.material
+  const bgColor = props.bgColor || ctx.bgColor
+
   const faceStyles = getFaceStyles({
+    index: props.index,
     size: ctx.size,
-    bgColor: ctx.bgColor,
-    index: props.index
+    bgColor,
+    material
   })
 
   const labelStyles = {

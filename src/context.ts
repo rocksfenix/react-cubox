@@ -7,6 +7,7 @@ export interface CubeContext {
   rotateY: number
   currentSide: number
   bgColor: string
+  material: string
 }
 
 const context = React.createContext<CubeContext>({
@@ -14,7 +15,8 @@ const context = React.createContext<CubeContext>({
   rotateX: 0,
   rotateY: 0,
   currentSide: 0,
-  bgColor: 'gold'
+  bgColor: 'gold',
+  material: 'gradient'
 })
 
 context.displayName = 'ReactCube3D'

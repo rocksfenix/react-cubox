@@ -37,6 +37,7 @@ interface FaceProps {
   size: number
   index: number
   bgColor: string
+  material: string
 }
 
 // Styles for sides
@@ -44,7 +45,9 @@ export const getFaceStyles = (props: FaceProps): React.CSSProperties => ({
   overflow: 'hidden',
   position: 'absolute',
   opacity: 0.8,
-  background: `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`,
+  background: props.material === 'gradient'
+    ? `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`
+    : props.bgColor,
   // touchCallout: 'none',
   userSelect: 'none',
   height: props.size,
