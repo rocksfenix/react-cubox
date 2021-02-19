@@ -38,13 +38,14 @@ interface FaceProps {
   index: number
   bgColor: string
   material: string
+  opacity: number
 }
 
 // Styles for sides
 export const getFaceStyles = (props: FaceProps): React.CSSProperties => ({
   overflow: 'hidden',
   position: 'absolute',
-  opacity: 0.8,
+  opacity: props.opacity,
   background: props.material === 'gradient'
     ? `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`
     : props.bgColor,

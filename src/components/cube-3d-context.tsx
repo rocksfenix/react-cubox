@@ -189,7 +189,8 @@ const Cube3DContext: React.FC<Props> = (props) => {
     currentSide,
     halfSize,
     bgColor: props.bgColor,
-    material: props.material
+    material: props.material,
+    opacity: props.opacity
   }
 
   return (

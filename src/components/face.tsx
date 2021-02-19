@@ -10,6 +10,7 @@ interface FaceProps {
   index: number
   material?: string
   bgColor?: string
+  opacity: number
   onClick: (event: event) => void
 }
 
@@ -40,12 +41,14 @@ export const Face: React.FC<FaceProps> = (props) => {
   // The side prop has priority
   const material = props.material || ctx.material
   const bgColor = props.bgColor || ctx.bgColor
+  const opacity = props.opacity || ctx.opacity
 
   const faceStyles = getFaceStyles({
     index: props.index,
     size: ctx.size,
     bgColor,
-    material
+    material,
+    opacity
   })
 
   const labelStyles = {
