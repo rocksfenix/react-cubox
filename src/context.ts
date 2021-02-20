@@ -5,20 +5,28 @@ export interface CubeContext {
   size: number
   rotateX: number
   rotateY: number
-  currentSide: number
+  activeFace: number
   bgColor: string
   material: string
   opacity: number
+  behavior: string
+  activeOpacity: number
+  inactiveOpacity: number
+  opacityTransitionTime: number
 }
 
 const context = React.createContext<CubeContext>({
   size: 200,
   rotateX: 0,
   rotateY: 0,
-  currentSide: 0,
+  activeFace: 0,
   bgColor: 'gold',
   material: 'gradient',
-  opacity: 0.8
+  behavior: 'translucid',
+  opacity: 0.8,
+  activeOpacity: 0.8,
+  inactiveOpacity: 0.5,
+  opacityTransitionTime: 450 // ms
 })
 
 context.displayName = 'ReactCube3D'

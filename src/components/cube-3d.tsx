@@ -53,6 +53,17 @@ Cube3D.defaultProps =  {
 
   // The material are (solid | gradient)
   material: 'gradient',
-
-  opacity: 0.8
+  // General opacity of the faces
+  opacity: 0.8,
+  // Determines if the active face has dynamic opacity
+  // opaque: The opacity is static
+  // active: The active face is more opaque
+  // translucid: The active face is less opaque
+  // You cah specify the active and inactive opacity
+  // with the props (activeOpacity) (inactiveOpacity) and
+  // the transition duration with (opacityTransitionTime)
+  behavior: 'translucid',
+  activeOpacity: 0.8,
+  inactiveOpacity: 0.5,
+  opacityTransitionTime: 450 // ms
 }
