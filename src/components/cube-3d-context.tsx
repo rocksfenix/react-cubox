@@ -16,7 +16,7 @@ interface Props extends Cube3DProps {
 const Cube3DContext: React.FC<Props> = (props) => {
   const [rotateX, setRotateX] = useState(props.rotateX)
   const [rotateY, setRotateY] = useState(props.rotateY)
-  const [currentSide, setCurrentSide] = useState(0)
+  const [activeFace, setactiveFace] = useState(0)
   const [blockScroll, allowScroll] = useDisableScroll()
   const {
     size,
@@ -141,7 +141,7 @@ const Cube3DContext: React.FC<Props> = (props) => {
         upsideDown
       })
 
-      setCurrentSide(activeSide)
+      setactiveFace(activeSide)
     }
 
     if(positionY !== previousPositionY || positionX !== previousPositionX) {
@@ -186,11 +186,15 @@ const Cube3DContext: React.FC<Props> = (props) => {
     size,
     rotateX,
     rotateY,
-    currentSide,
+    activeFace,
     halfSize,
     bgColor: props.bgColor,
     material: props.material,
-    opacity: props.opacity
+    opacity: props.opacity,
+    behavior: props.behavior,
+    activeOpacity: props.activeOpacity,
+    inactiveOpacity: props.inactiveOpacity,
+    opacityTransitionTime: props.opacityTransitionTime,
   }
 
   return (

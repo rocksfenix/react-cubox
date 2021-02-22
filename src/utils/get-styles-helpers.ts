@@ -39,13 +39,35 @@ interface FaceProps {
   bgColor: string
   material: string
   opacity: number
+  behavior: string
+  active: boolean
+  activeOpacity: number
+  inactiveOpacity: number
+  opacityTransitionTime: number
 }
 
 // Styles for sides
+
+// calcule opacity in bese of behaviur
+// behavior
+function calculeOpacity (props: FaceProps) {
+  let opacity = props.opacity
+  if (props.behavior === 'opaque') {
+    opacity = props.opacity
+  }
+  if (props.behavior === 'active') {
+    opacity = props.active ? props.activeOpacity : props.inactiveOpacity
+  }
+  if (props.behavior === 'translucid') {
+    opacity = props.active ? props.inactiveOpacity : props.activeOpacity
+  }
+  return opacity
+}
+
 export const getFaceStyles = (props: FaceProps): React.CSSProperties => ({
   overflow: 'hidden',
   position: 'absolute',
-  opacity: props.opacity,
+  opacity: calculeOpacity(props),
   background: props.material === 'gradient'
     ? `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`
     : props.bgColor,
@@ -54,7 +76,7 @@ export const getFaceStyles = (props: FaceProps): React.CSSProperties => ({
   height: props.size,
   width: props.size,
   willChange: 'opacity',
-  transition: 'opacity 500ms ease',
+  transition: `opacity ${props.opacityTransitionTime}ms ease`,
   transform: getTransformBySide(props.index, props.size / 2)
 })
 

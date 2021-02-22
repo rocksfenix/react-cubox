@@ -11,6 +11,10 @@ interface FaceProps {
   material?: string
   bgColor?: string
   opacity: number
+  behavior: string
+  activeOpacity: number
+  inactiveOpacity: number
+  opacityTransitionTime: number
   onClick: (event: event) => void
 }
 
@@ -42,13 +46,25 @@ export const Face: React.FC<FaceProps> = (props) => {
   const material = props.material || ctx.material
   const bgColor = props.bgColor || ctx.bgColor
   const opacity = props.opacity || ctx.opacity
+  const behavior = props.behavior || ctx.behavior
+  const activeOpacity = props.activeOpacity || ctx.activeOpacity
+  const inactiveOpacity = props.inactiveOpacity || ctx.inactiveOpacity
+  const opacityTransitionTime = props.opacityTransitionTime || ctx.opacityTransitionTime
+
+  const active = props.index === ctx.activeFace
+
 
   const faceStyles = getFaceStyles({
     index: props.index,
     size: ctx.size,
     bgColor,
     material,
-    opacity
+    opacity,
+    active,
+    behavior,
+    activeOpacity,
+    inactiveOpacity,
+    opacityTransitionTime
   })
 
   const labelStyles = {
