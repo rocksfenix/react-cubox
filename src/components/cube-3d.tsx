@@ -64,6 +64,6 @@ Cube3D.defaultProps =  {
   // the transition duration with (opacityTransitionTime)
   behavior: 'translucid',
   activeOpacity: 0.8,
-  inactiveOpacity: 0.5,
+  inactiveOpacity: 0.2,
   opacityTransitionTime: 450 // ms
 }

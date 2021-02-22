@@ -25,7 +25,7 @@ const context = React.createContext<CubeContext>({
   behavior: 'translucid',
   opacity: 0.8,
   activeOpacity: 0.8,
-  inactiveOpacity: 0.5,
+  inactiveOpacity: 0.2,
   opacityTransitionTime: 450 // ms
 })
 
