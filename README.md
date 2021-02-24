@@ -14,6 +14,7 @@ The declarative composition that we expected:
   activeOpacity={0.5}
   inactiveOpacity={1}
   opacityDuration={0.5}
+  opacity={0.8}
   showFaceNumber
   speed={0.1}
   sensivity={0.1}
@@ -23,7 +24,8 @@ The declarative composition that we expected:
   onMove={console.log}
   onMoveEnd={console.log}
   refController={controllerRef}
-  material='solid|gradient|custom'
+  texture='https://...'
+  material='solid|gradient|texture'
   behavior='opaque|active|translucid'
 >
   <Face bgColor='blue' />
