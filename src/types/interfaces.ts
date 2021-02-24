@@ -3,6 +3,7 @@ type event = {
 }
 
 export interface Cube3DProps {
+  texture: string | null
   style: any
   size: number
   speed: number

@@ -34,6 +34,7 @@ export const getCubeStyles = (cubeData: CubeStyles): React.CSSProperties => ({
 })
 
 interface FaceProps {
+  texture: string | null
   size: number
   index: number
   bgColor: string
@@ -64,13 +65,33 @@ function calculeOpacity (props: FaceProps) {
   return opacity
 }
 
+function getCalcBackground (props: FaceProps) {
+  let backgroundStyles = {
+    background: props.bgColor,
+    backgroundSize: 'initial',
+    backgroundRepeat: 'initial'
+  }
+  // let background = props.background
+  if (props.material === 'gradient') {
+    backgroundStyles.background = `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`
+  }
+  if (props.material === 'solid') {
+    backgroundStyles.background = props.bgColor
+  }
+  if (props.material === 'texture' && props.texture) {
+    backgroundStyles.background = `url(${props.texture})`
+    backgroundStyles.backgroundSize = `cover`
+    backgroundStyles.backgroundRepeat = `no-repeat`
+  }
+  return backgroundStyles
+}
+
+
 export const getFaceStyles = (props: FaceProps): React.CSSProperties => ({
   overflow: 'hidden',
   position: 'absolute',
   opacity: calculeOpacity(props),
-  background: props.material === 'gradient'
-    ? `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`
-    : props.bgColor,
+  ...getCalcBackground(props),
   // touchCallout: 'none',
   userSelect: 'none',
   height: props.size,

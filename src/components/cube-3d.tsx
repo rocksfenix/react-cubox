@@ -65,5 +65,7 @@ Cube3D.defaultProps =  {
   behavior: 'translucid',
   activeOpacity: 0.8,
   inactiveOpacity: 0.2,
-  opacityTransitionTime: 450 // ms
+  opacityTransitionTime: 450, // ms
+  // Is the background texture
+  texture: null 
 }

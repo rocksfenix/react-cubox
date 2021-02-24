@@ -9,6 +9,7 @@ type event = {
 interface FaceProps {
   index: number
   material?: string
+  texture: string | null
   bgColor?: string
   opacity: number
   behavior: string
@@ -44,6 +45,7 @@ export const Face: React.FC<FaceProps> = (props) => {
 
   // The side prop has priority
   const material = props.material || ctx.material
+  const texture = props.texture || ctx.texture
   const bgColor = props.bgColor || ctx.bgColor
   const opacity = props.opacity || ctx.opacity
   const behavior = props.behavior || ctx.behavior
@@ -64,6 +66,7 @@ export const Face: React.FC<FaceProps> = (props) => {
     behavior,
     activeOpacity,
     inactiveOpacity,
+    texture,
     opacityTransitionTime
   })
 
