@@ -19,3 +19,5 @@ npm-debug.log
 config.gypi
 package-lock.json
 stories
+
+playground

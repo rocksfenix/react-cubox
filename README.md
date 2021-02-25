@@ -1,8 +1,8 @@
-# react-cube-3d
+# react-cubox
 
-> Cube 3D made with React
+> Build your own Cube 3D made with React
 
-[![NPM](https://img.shields.io/npm/v/react-cube-3d.svg)](https://www.npmjs.com/package/react-cube-3d) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-cubox.svg)](https://www.npmjs.com/package/react-cubox) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ### Composition
 
@@ -37,6 +37,9 @@ The declarative composition that we expected:
 
 ```
 
+The full documentation is still in progress.
+
+<!-- 
 ### Remote controller
 
 By default, the movements will be listened in document, but you can pass a React ref to control and listen the movements on another element.
@@ -57,7 +60,7 @@ By default, the movements will be listened in document, but you can pass a React
 <Cube>
 ```
 
------
+----- -->
 
 This component uses Standard JS
 

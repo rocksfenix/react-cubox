@@ -1,10 +1,10 @@
 {
-  "name": "react-cube-3d",
+  "name": "react-cubox",
   "version": "0.0.1",
   "engines": {
     "node": "^10 || ^12 || >=14"
   },
-  "description": "This component will you help to repeat components or elements to fill the length that you need.",
+  "description": "Build a fancy Cube 3D simulated via CSS transformations with React",
   "exports": {
     ".": {
       "require": "./lib/cjs/index.js",
@@ -51,12 +51,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rocksfenix/react-cube-3d"
+    "url": "git+https://github.com/rocksfenix/react-cubox"
   },
   "bugs": {
-    "url": "https://github.com/rocksfenix/react-cube-3d/issues"
+    "url": "https://github.com/rocksfenix/react-cubox/issues"
   },
-  "homepage": "https://react-cube-3d-website.vercel.app/",
+  "homepage": "https://react-cubox-website.vercel.app/",
   "dependencies": {
     "request-animation-frame-polyfill": "^1.1.2"
   }
