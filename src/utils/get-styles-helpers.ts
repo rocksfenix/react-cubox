@@ -8,8 +8,10 @@ interface ViewportStyles {
 
 // Styles for the main viewport container
 export const getViewportStyles = (props: ViewportStyles): React.CSSProperties => ({
-  background: '#000',
-  marginTop: '20%',
+  background: 'transparent',
+  // By default we added the margin top to prevent 
+  // cut the cube, but this property can be overwritten via props
+  marginTop: `${props.size / 4}px`,
   perspective: '800px',
   perspectiveOrigin: `50% ${props.size - props.size/6}px`,
   transform: 'scale(0.8, 0.8)',
