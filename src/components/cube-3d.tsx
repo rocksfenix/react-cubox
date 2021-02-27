@@ -10,7 +10,6 @@ import { Cube3DProps } from '../types/interfaces'
 import Cube3DContext from './cube-3d-context'
 
 export const Cube3D: React.FC<Cube3DProps> = (props) => {
-  
   // First we check if children elements / components are invalid.
   const errorMessage = getErrorInvalidChild(props.children)
 
@@ -67,5 +66,7 @@ Cube3D.defaultProps =  {
   inactiveOpacity: 0.2,
   opacityTransitionTime: 450, // ms
   // Is the background texture
-  texture: null 
+  texture: null,
+  // Show the number of the face adding div element
+  showFaceNumber: false
 }

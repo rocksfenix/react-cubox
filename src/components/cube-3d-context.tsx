@@ -196,6 +196,7 @@ const Cube3DContext: React.FC<Props> = (props) => {
     activeOpacity: props.activeOpacity,
     inactiveOpacity: props.inactiveOpacity,
     opacityTransitionTime: props.opacityTransitionTime,
+    showFaceNumber: props.showFaceNumber
   }
 
   return (

@@ -20,6 +20,7 @@ export interface Cube3DProps {
   activeOpacity: number
   inactiveOpacity: number
   opacityTransitionTime: number
+  showFaceNumber: boolean
   onClick?: (event: event) => void
   children?: React.PropsWithChildren<any>
 }

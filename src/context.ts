@@ -13,7 +13,8 @@ export interface CubeContext {
   activeOpacity: number
   inactiveOpacity: number
   opacityTransitionTime: number
-  texture: string | null
+  texture: string | null,
+  showFaceNumber: boolean
 }
 
 const context = React.createContext<CubeContext>({
@@ -28,7 +29,8 @@ const context = React.createContext<CubeContext>({
   activeOpacity: 0.8,
   inactiveOpacity: 0.2,
   opacityTransitionTime: 450, // ms
-  texture: null
+  texture: null,
+  showFaceNumber: false
 })
 
 context.displayName = 'ReactCube3D'

@@ -16,6 +16,7 @@ interface FaceProps {
   activeOpacity: number
   inactiveOpacity: number
   opacityTransitionTime: number
+  showFaceNumber: boolean
   onClick: (event: event) => void
 }
 
@@ -55,6 +56,8 @@ export const Face: React.FC<FaceProps> = (props) => {
 
   const active = props.index === ctx.activeFace
 
+  const showFaceNumber = props.showFaceNumber  || ctx.showFaceNumber
+
 
   const faceStyles = getFaceStyles({
     index: props.index,
@@ -82,7 +85,7 @@ export const Face: React.FC<FaceProps> = (props) => {
       onClick={handleClick}
     >
       <div style={imageStyles}>
-        {!props.children && (
+        {showFaceNumber && (
           // Will be removed
           <span style={labelStyles}>
             {props.index}
