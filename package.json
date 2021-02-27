@@ -1,10 +1,10 @@
 {
   "name": "react-cubox",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "node": "^10 || ^12 || >=14"
   },
-  "description": "Build a fancy Cube 3D simulated via CSS transformations with React",
+  "description": "Build a fancy Cube 3D interactive, simulated via CSS transformations with React",
   "exports": {
     ".": {
       "require": "./lib/cjs/index.js",
