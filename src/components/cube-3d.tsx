@@ -10,6 +10,9 @@ import { Cube3DProps } from '../types/interfaces'
 import Cube3DContext from './cube-3d-context'
 
 export const Cube3D: React.FC<Cube3DProps> = (props) => {
+  // Children count
+  const count = React.Children.count(props.children)
+  
   // First we check if children elements / components are invalid.
   const errorMessage = getErrorInvalidChild(props.children)
 
@@ -21,7 +24,7 @@ export const Cube3D: React.FC<Cube3DProps> = (props) => {
 
   // If the side is less than 6 then we clone the
   // elements to fill 6 positions on the sides of the cube. 
-  if (React.Children.count(props.children) < 6) {
+  if (count < 6) {
     children = getClonedToFill(props.children, 6, props.size)
   }
 
