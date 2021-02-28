@@ -68,24 +68,22 @@ function calculeOpacity (props: FaceProps) {
 }
 
 function getCalcBackground (props: FaceProps) {
-  let backgroundStyles = {
-    background: props.bgColor,
-    backgroundSize: 'initial',
-    backgroundRepeat: 'initial'
+  const { bgColor, texture, material } = props
+
+  switch(material) {
+    case 'gradient': return {
+      background: `radial-gradient(${bgColor}, rgb(0, 0, 0))`
+    }
+    case 'solid': return {
+      backgroundColor: bgColor
+    }
+    case 'texture': return {
+      background: `url(${texture})`,
+      backgroundSize: `cover`,
+      backgroundRepeat: `no-repeat`
+    }
+    default: return {}
   }
-  // let background = props.background
-  if (props.material === 'gradient') {
-    backgroundStyles.background = `radial-gradient(${props.bgColor}, rgb(0, 0, 0))`
-  }
-  if (props.material === 'solid') {
-    backgroundStyles.background = props.bgColor
-  }
-  if (props.material === 'texture' && props.texture) {
-    backgroundStyles.background = `url(${props.texture})`
-    backgroundStyles.backgroundSize = `cover`
-    backgroundStyles.backgroundRepeat = `no-repeat`
-  }
-  return backgroundStyles
 }
 
 

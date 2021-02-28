@@ -81,7 +81,6 @@ export const Face: React.FC<FaceProps> = (props) => {
   return (
     <div
       style={faceStyles}
-      {...props}
       onClick={handleClick}
     >
       <div style={imageStyles}>

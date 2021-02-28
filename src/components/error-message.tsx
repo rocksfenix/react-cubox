@@ -12,11 +12,12 @@ export const ErrorMessage: React.FC<ErrorMessageProps> = (props) => {
   )
 }
 
-const styles = {
+const styles: React.CSSProperties = {
   background: 'gold',
   borderRadius: '0.3em',
   padding: '1em',
-  margin: '1em'
+  margin: '1em',
+  textAlign: 'center'
 }
 
 export default ErrorMessage
