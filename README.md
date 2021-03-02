@@ -4,6 +4,51 @@
 
 [![NPM](https://img.shields.io/npm/v/react-cubox.svg)](https://www.npmjs.com/package/react-cubox) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+This component will you help to build a fancy Cube 3D interactive, simulated via CSS transformations with React.
+
+See [usage and demo](https://react-cubox-website.vercel.app/).
+
+## Install
+
+```bash
+npm install --save react-repeat
+```
+
+## Usage
+
+Only you need the ``Cube`` and ``Face`` components, example:
+
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube>
+      <Face />
+    <Cube>
+  </div>
+)
+
+```
+
+You can pass any html or React components inside of the ``<Face>`` component. If you only pass one ``<Face>`` this will be repeated 6 times once by every face of the cube:
+
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube>
+      <Face>
+        <span>⚡</span>
+      </Face>
+    <Cube>
+  </div>
+)
+
+```
+
+<!-- 
 ### Composition
 
 The declarative composition that we expected:
@@ -37,7 +82,7 @@ The declarative composition that we expected:
 
 ```
 
-The full documentation is still in progress.
+The full documentation is still in progress. -->
 
 <!-- 
 ### Remote controller
