@@ -48,6 +48,46 @@ const App = () => (
 
 ```
 
+If you pass two or more ``<Face>`` this will repeat until to fill the six sides.
+
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube>
+      <Face>
+        <span>⚡</span>
+      </Face>
+      <Face>
+        <span>🔥</span>
+      </Face>
+    <Cube>
+  </div>
+)
+
+```
+
+You can pass the ``bgColor`` to change the base color:
+
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube bgColor='red'>
+      <Face>
+        <span>⚡</span>
+      </Face>
+      <Face>
+        <span>🔥</span>
+      </Face>
+    <Cube>
+  </div>
+)
+
+```
+
 <!-- 
 ### Composition
 
