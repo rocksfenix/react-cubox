@@ -31,6 +31,21 @@ const App = () => (
 
 ```
 
+You can pass the size in px via ``size`` prop:
+
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube size={200}>
+      <Face />
+    <Cube>
+  </div>
+)
+
+```
+
 You can pass any html or React components inside of the ``<Face>`` component. If you only pass one ``<Face>`` this will be repeated 6 times once by every face of the cube:
 
 ```jsx
@@ -87,6 +102,31 @@ const App = () => (
 )
 
 ```
+
+You can pass bgColor different for every ``Face``:
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube>
+      <Face bgColor='red'>
+        <span>⚡</span>
+      </Face>
+      <Face bgColor='blue'>
+        <span>🔥</span>
+      </Face>
+    <Cube>
+  </div>
+)
+
+```
+
+
+
+
+
+
 
 <!-- 
 ### Composition
