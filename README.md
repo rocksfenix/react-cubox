@@ -122,6 +122,78 @@ const App = () => (
 
 ```
 
+The opacity is dynamic for the active or visible face, this is controlled by ``behavior`` prop, by default has ``translucid`` the opacity will be less for the active face, you can pass ``active`` and the face active will be more opaque, you can controll the opacity on every state with props ``activeOpacity`` and ``inactiveOpacity`` and define the transition duration with ``opacityTransitionTime``:
+
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube
+      behavior='active'
+      bgColor='lime'
+      activeOpacity={0.9}
+      inactiveOpacity={0.3}
+      opacityTransitionTime={450}
+    >
+      <Face>
+        <span>⚡</span>
+      </Face>
+      <Face>
+        <span>🔥</span>
+      </Face>
+    <Cube>
+  </div>
+)
+
+```
+
+You can pass the color usign ``bgColor`` by default the material is ``gradient`` but you can pass ``solid`` to avoid the gradient.
+
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube
+      bgColor='lime'
+      material='solid'
+    >
+      <Face>
+        <span>⚡</span>
+      </Face>
+      <Face>
+        <span>🔥</span>
+      </Face>
+    <Cube>
+  </div>
+)
+
+```
+
+Also you can pass ``texture`` yo the ``material`` prop and define the prop ``texture`` to add a background image:
+```jsx
+import { Cube, Face } from 'react-cubox'
+
+const App = () => (
+  <div>
+    <Cube
+      bgColor='lime'
+      material='texture'
+      texture='https://your-image-url/image.jpg'
+    >
+      <Face>
+        <span>⚡</span>
+      </Face>
+      <Face>
+        <span>🔥</span>
+      </Face>
+    <Cube>
+  </div>
+)
+
+```
+
 
 
 
