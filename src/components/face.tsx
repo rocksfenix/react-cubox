@@ -17,15 +17,15 @@ interface FaceProps {
   inactiveOpacity: number
   opacityTransitionTime: number
   showFaceNumber: boolean
-  onClick: (event: event) => void
+  onFaceClick: (event: event) => void
 }
 
 export const Face: React.FC<FaceProps> = (props) => {
   const ctx = useContext(context)
 
   function handleClick () {
-    if (props.onClick) {
-      props.onClick({ face: props.index, ...props })
+    if (props.onFaceClick) {
+      props.onFaceClick({ face: props.index, ...props })
     }
   }
 
