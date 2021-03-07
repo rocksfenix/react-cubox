@@ -194,7 +194,29 @@ const App = () => (
 
 ```
 
+You can listen the click event on every face with listener ``onFaceClick`` and you receive the face index and more info via object event. All props that you pass via prop face will be received in this object:
+```jsx
+import { Cube, Face } from 'react-cubox'
 
+const App = () => {
+  function handle (data) {
+    // You receive the info here
+  }
+
+  return (
+    <div>
+      <Cube
+        bgColor='lime'
+      >
+        <Face onFaceClick={handle}>
+          <span>⚡</span>
+        </Face>
+      <Cube>
+    </div>
+  )
+}
+
+```
 
 
 
